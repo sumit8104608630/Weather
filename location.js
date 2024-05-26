@@ -4,7 +4,7 @@ const result=document.querySelector(".result")
 
 button.addEventListener('click',async()=>{
 
-    const input=document.getElementById("inputs").value
+    const input=document.getElementById("inputs").value.toUpperCase()
 if(input!=""){
     await fetch(`https://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${input}&aqi=yes`)
     .then((res)=>res.json()).then((data)=>{
