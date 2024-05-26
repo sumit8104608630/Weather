@@ -3,14 +3,20 @@ const button0=document.querySelector(".current-location")
 const result=document.querySelector(".result")
 
 button.addEventListener('click',async()=>{
-    const input=document.getElementById("inputs").value
 
+    const input=document.getElementById("inputs").value
+if(input!=""){
     await fetch(`https://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${input}&aqi=yes`)
     .then((res)=>res.json()).then((data)=>{
         console.log(data)
         result.innerHTML=`Location : <i class="fa-solid fa-location-dot" style="color: #000000;"></i> <strong style="color:green"> ${data.location.name} </strong><br> Country <strong style="color:green"> ${data.location.country} </strong><br> Temperature in celsius: <i class="fa-solid fa-temperature-high" style="color: #000000;"></i><strong style="color:red"> ${data.current.temp_c} </strong><br> Temperature Fahrenheit :  <strong style="color:blue"> ${data.current.temp_f} </strong>`
         console.log(data.current.temp_c)
     })
+}
+else{
+    input.required="true"
+    alert("please enter the city or country")
+}
 })
 async function currentWeather(position){
     await  wheather(position.coords.latitude,position.coords.longitude)
