@@ -5,7 +5,7 @@ const result=document.querySelector(".result")
 button.addEventListener('click',async()=>{
     const input=document.getElementById("inputs").value
 
-    await fetch(`http://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${input}&aqi=yes`)
+    await fetch(`https://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${input}&aqi=yes`)
     .then((res)=>res.json()).then((data)=>{
         console.log(data)
         result.innerHTML=`Location : <i class="fa-solid fa-location-dot" style="color: #000000;"></i> <strong style="color:green"> ${data.location.name} </strong><br> Country <strong style="color:green"> ${data.location.country} </strong><br> Temperature in celsius: <i class="fa-solid fa-temperature-high" style="color: #000000;"></i><strong style="color:red"> ${data.current.temp_c} </strong><br> Temperature Fahrenheit :  <strong style="color:blue"> ${data.current.temp_f} </strong>`
@@ -19,7 +19,7 @@ function errors(){
     alert("please Allow the Location")
 }
  async function wheather(lat,lon){
-    await fetch(`http://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${lat},${lon}&aqi=yes`)
+    await fetch(`https://api.weatherapi.com/v1/current.json?key=c439c42335c34f1aa75135535242405&q=${lat},${lon}&aqi=yes`)
     .then((res)=>res.json()).then((data)=>{
         result.innerHTML=`Location : <i class="fa-solid fa-location-dot" style="color: #000000;"></i> <strong style="color:green"> ${data.location.name} </strong><br> Country <strong style="color:green"> ${data.location.country} </strong><br> Temperature in celsius: <i class="fa-solid fa-temperature-high" style="color: #000000;"></i><strong style="color:red"> ${data.current.temp_c} </strong><br> Temperature Fahrenheit :  <strong style="color:blue"> ${data.current.temp_f} </strong>`
         console.log(data.current.temp_c)
