@@ -51,6 +51,8 @@ p{
     border-radius: 5px;
     border: 1px solid black;
     margin: 10px;
+    width: 200px;
+    height: 80px;
 }
 .buttons{
     display: grid;
